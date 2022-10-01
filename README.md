@@ -74,4 +74,4 @@ This will copy the generated Natspec to your clipboard.
 
 ## Credits
 
-@transmissions11
+[@transmissions11](https://github.com/transmissions11)
