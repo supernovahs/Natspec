@@ -3,15 +3,11 @@ use std::env;
 use clipboard::{ClipboardContext, ClipboardProvider};
 
 fn main() {
-    let input = env::args().collect::<Vec<String>>()[1..].join(" ");
+    let args: Vec<String> = env::args().collect();
 
     let output = format!(
-        "{}\n{}{}{}\n{}",
-        "    /*//////////////////////////////////////////////////////////////",
-        "    ",
-        (0..(64 - input.len()) / 2).map(|_| " ").collect::<String>(),
-        input.to_uppercase(),
-        "    //////////////////////////////////////////////////////////////*/"
+        "{}{}\n{}{}{}{}{}{}\n{}{}",
+        "/// @title: ",&args[1],"/// @author: ",&args[2] ," ","<", &args[3], ">","/// @notice: ",&args[4],
     );
 
     println!("{}", output); // Print the header to console.

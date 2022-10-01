@@ -1,6 +1,6 @@
-# headers
+# Natspec 
 
-Generate perfect code headers every time.
+Generate perfect code Natspec every time.
 
 ## Build
 
@@ -16,16 +16,16 @@ cargo install --path .
 ## Usage
 
 ```sh
-λ ./headers "testing 123"
+author "<Title of Contract> " "<Author Name>" "<Author contact>" "<Description of contract>"
 ```
 
 ```sh
-/*//////////////////////////////////////////////////////////////
-                           TESTING 123
-//////////////////////////////////////////////////////////////*/
+/// @title: Natspec Generator
+/// @author: supernovahs.eth <supernovahs@proton.me>
+/// @notice: Generates perfect every time
 ```
 
-It will also copy the header to your clipboard automatically.
+It will also copy the Natspec to your clipboard automatically.
 
 ### With VSCode
 
@@ -33,41 +33,45 @@ Set your global [`tasks.json`](https://stackoverflow.com/questions/41046494/maki
 
 ```json
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "Generate Header",
-      "type": "shell",
-      "command": "headers ${input:header}",
-      "presentation": {
-        "reveal": "never"
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Generate title,author",
+        "type": "shell",
+        "command": "author ${input:title} ${input: authorname} ${input:authorcontact} ${input:description}",
+        "presentation": {
+          "reveal": "never"
+        }
       }
-    }
-  ],
-  "inputs": [
-    {
-      "id": "header",
-      "description": "Header",
-      "type": "promptString"
-    }
-  ]
-}
-```
-
-To really speed-up your workflow, you can even add a keybind for the task in [`keybindings.json`](https://code.visualstudio.com/docs/getstarted/keybindings):
-
-```json
-[
-  {
-    "key": "CMD+h",
-    "command": "workbench.action.tasks.runTask",
-    "args": "Generate Header"
+    ],
+    "inputs": [
+      {
+        "id": "header",
+        "description": "Header",
+        "type": "promptString"
+      },{
+        "id": "title",
+        "description": "title",
+        "type": "promptString" 
+      },{
+        "id": "authorname",
+        "description": "authorname",
+        "type": "promptString"
+      },{
+        "id": "authorcontact",
+        "description": "authorcontact",
+        "type": "promptString"
+      },{
+        "id": "description",
+        "description": "description",
+        "type": "promptString"
+      }
+    ]
   }
-]
 ```
 
-This will copy the generated header to your clipboard.
+This will copy the generated Natspec to your clipboard.
 
 ## Credits
 
-Inspired by virtualjpeg's [`blocky`](https://github.com/virtualjpeg/blocky).
+@transmissions11
